@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour {
 
-	public float speed = 5f;
+	public float force = 5f;
 
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	public void UpdatePosition()
-	{
-	}
 
 	// Update is called once per frame
-	void Update () {
-		Vector3 positionDelta = new Vector3(0, 0, speed * Time.deltaTime);
-		transform.position = transform.position + positionDelta;
+	void FixedUpdate () {
+		Rigidbody rb = GetComponent<Rigidbody>();
+		rb.AddForce(new Vector3(0, 0, force));
 	}
 }
